@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilya E-Ticaret</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: 'Poppins', sans-serif;
+            color:#333;
+            background-color: #fdfdfd;
+        }
+        .Container {
+            width: 90%;
+            max-width: 1200px;
+            margin:0 auto;
+        }
+        .header{
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+
+        }
+        .header .container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:1rem 0
+        }
+        .header .logo img{
+            width: 10px;
+            height: 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color:#333;
+        }
+        .header .logo span{
+            color:#f4b328;
+        }
+        .header .nav ul{
+            display: flex;
+            gap:1rem;
+        }
+        .header nav ul li{
+            list-style: none;
+        }
+        .header .nav ul li a{
+            text-decoration: none;
+            color:#333;
+            padding:0.5rem;
+            transition: color 0.3s;
+        } 
+        .header .nav ul li a :hover,
+        header .nav ul li a .active{
+            color:#f4b328;
+        }
+        .header .icons a{
+            margin-left:1rem;
+            display: inline-block;
+            width:20px;
+            transition: opacity 0.3s;
+        }
+        .header .icons a img{
+            width: 100%;
+        }
+        .header .icons a:hover{
+            opacity: 0.7;
+        }
+        .hero{
+            background-color: #fafafa;
+            padding:2rem 0;
+        }
+        .hero-content{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap:2rem;
+        }
+        .hero-text{
+            flex:1;
+        }
+        .hero-text h1{
+            font-size:2.5rem;
+            margin-bottom:1rem;
+            color:#666;
+        }
+        .hero-text p{
+            font-size:1rem;
+            margin-bottom:1.5rem;
+            color:#666;
+        }
+        .hero-text .btn{
+            display: inline-block;
+            padding:0.5rem 1.5rem;
+            background-color: #f4b328;
+            color:#fff;
+            text-decoration:none;
+            border-radius:4px;
+            transition: background-color 0.3s;
+    
+            
+        }
+        .hero-text.btn:hover{
+            background-color: #d99b1f;
+        }
+        .hero-image{
+            flex:1;
+            text-align: center;
+        }
+        .hero-image img{
+            max-width: 100%;
+            height:auto;
+            border-radius:8px;
+        }
+        .range{
+            padding:2rem 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        .range-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .range-info {
+            max-width: 600px;
+            margin-bottom:2rem;
+        }
+        .range-info h2{
+            font-size:2rem;
+            margin-bottom: 0.5rem;
+        }
+        .range-info p{
+            color:#666;
+        }
+        .range-items{
+            display: flex;
+            flex-wrap: wrap;
+            gap:2rem;
+            justify-content: center;
+        }
+        .range-item{
+            width: 200px;
+        }
+        .range-item img{
+            width: 100%; 
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+
+        }
+        .range-item h3{
+            font-size:1rem;
+            color:#333;
+        }
+        .products{
+            padding:2rem 0;
+        }
+        .products h2{
+            text-align: center;
+            font-size:2rem;
+            margin-bottom:2rem;
+        }
+        .products-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap:2rem;
+            justify-content: center;
+        }
+        .product-car{
+            background-color: #fff;
+            border-radius:8px;
+            overflow:hidden;
+            text-align: center;
+            transition:box-shadow 0.3s;
+            border:1px solid #eee;
+        }
+        .product-card:hover{
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .product-card img{
+            width: 100%;
+            height:auto;
+            
+        }
+        .product-card h3{
+            font-size:1.1rem;
+            margin:0.75rem 0;
+
+        }
+        .product-card .price{
+            
+            color:#666659;
+            font-weight: 600;
+            margin-bottom:1rem;
+        }
+        .rooms{
+            padding:2rem 0;
+            background-color: #fafafa;
+            text-align: center;
+        }
+        .rooms h2{
+            font-size:2rem;
+            margin-bottom:1rem;
+        }
+        .rooms p{
+            color:#666;
+            margin-bottom:2rem;
+        }
+        .rooms-grid{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap:1rem;
+            justify-content: center;
+        }
+        .room-item img{
+            width:100%;
+            border-radius: 8px;;
+        }
+        .subscribe{
+            width: 50%;
+            color:#a89b9b;
+            padding:2rem 0;
+            text-align: center;
+        }
+        .subscribe-content{
+            max-width: 600px;
+            margin-bottom:0 auto;
+        }
+        .subscribe-content h2{
+            font-size:2rem;
+            margin-bottom:0.5rem;
+        }
+        .subscribe-content p{
+            color:#666;
+            margin-bottom:1.5rem;
+        }
+        .subscribe-form{
+            display: flex;
+            gap:0.5rem;
+            justify-content: center;
+        }
+        .subscribe-form input{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            flex:1;
+            padding:0.75rem;
+            border:1px solid #ccc;
+            border-radius: 4px;
+        }
+        .subscribe-form button{
+            padding:0.75rem 1rem;
+            border:none;
+            background-color: #f4b328;
+            color:#fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .subscribe-form button:hover{
+            background-color: #d99b1f;
+        }
+        .footer{
+            background-color: #f8f5f5;
+            color:#fff;
+            padding:2rem 0;
+        }
+        .footer-content{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+        .footer-left h3{
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            padding: 0.5rem;
+            margin: 5rem;
+        }
+        .footer-left {
+            color:#050505;
+        }
+        .footer-right .footer-links li a{
+            color:#0f0101;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            position: center;
+            
+        }
+        .footer-bottom{
+            text-align: center;
+            border-top:1px solid #444;
+            padding-top:1rem;
+            font-size:0.9rem;
+            color:#ccc;
+        }
+        @media (max-width: 768px){
+            .header .container{
+                flex-direction: column;;
+                align-items: flex-start;
+            }
+            .hero-content{
+                flex-direction:column;
+                text-align: center;
+            }
+            .range-items{
+                flex-direction: column;
+
+            }
+            .footer-content{
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-right{
+                margin-top: 1rem;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-logo">
+                <a href="#">
+                    <img src="55.png" alt="Furniro"></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Collections</a></li>    
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+                <div class="icons">
+                    <a href="#"><img src="account.png" alt="account"></a>
+                    <a href="#"> <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="search"></a>
+                    <a href="#"> <img src="https://cdn-icons-png.flaticon.com/512/126/126510.png" alt="user"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png" alt="cart"></a>
+                    
+                </div>
+            
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Discover Our New Colection</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo hic temporibus obcaecati iste asperiores. Omnis reprehenderit similique vero corporis laudantium? Cumque impedit incidunt voluptatem accusamus illum neque quisquam consequuntur perspiciatis!
+                </p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="hero-img">
+                
+                <img src="1.png" alt=""/>
+            </div>
+        </div>
+    </section>
+    <section class="range">
+        <div class="container range-content">
+            
+            <div class="range-info">
+                <h2>Browse The Range</h2>
+                <p>
+                    Evinizin her köşesine uygun binlerce ürün.
+                </p>
+                
+            </div>
+            <div class="range-items">
+                <div class="range-item">
+                    <img src="2.png" alt=""/>
+                    <h3>Dining</h3>
+                </div>
+                <div class="range-item">
+                    <img src="3.png" alt="Bedroom">
+                    <h3>Living</h3>
+                </div>
+                <div class="range-item">
+                    <img src="4.png" alt="Bedroom">
+                    <h3>Bedroom</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products">
+        <div class="container">
+            <h2><strong>Our Products</strong></h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="11.png" alt="Syltherine"/>
+                    <h3>Syltherine</h3>
+                    <p class="price"><strong>Rp 2.500.000</strong></p> 
+                </div>
+                <div class="product-card">
+                    <img src="12.png" alt="Product-2"/>
+                    <h3>Leviosa</h3>
+                    <p class="price"><strong>Rp 2.500.000</strong></p>
+                </div>
+                <div class="product-card">
+                    <img src="13.png" alt="Product-3"/>
+                    <h3>Lolito</h3>
+                    <p class="price"><strong>Rp 7.000.000</strong></p>
+                </div>
+                <div class="product-card">
+                    <img src="14.png" alt="Product-4"/>
+                    <h3>Respira</h3>
+                    <p class="price"><strong>Rp 500.000</strong></p>
+                </div>
+                <div class="product-card">
+                    <img src="15.png" alt="Product-4"/>
+                    <h3>Grifo</h3>
+                    <p class="price"><strong>Rp 1.500.000</strong></p>
+                </div>
+                <div class="product-card">
+                    <img src="16.png" alt="Product-4"/>
+                    <h3>Muggo</h3>
+                    <p class="price"><strong>Rp 150.000</strong></p>
+                </div>
+                <div class="product-card">
+                    <img src="17.png" alt="Product-4"/>
+                    <h3>Pinkky</h3>
+                    <p class="price"><strong>Rp 7.000.000</strong></p>
+                </div>
+                <div class="product-card">
+                    <img src="18.png" alt="Product-4"/>
+                    <h3>Potty</h3>
+                    <p class="price"><strong>Rp 500.000</strong> </p>
+                </div>
+                
+            </div>
+    </section>
+    <section class="rooms">
+        <div class="container">
+            <h2>50+ Beatiful Rooms</h2>
+            <p>Farklı tarzlarda hazırlanmış odalardan ilham alın.</p>
+            <div class="rooms-grid">
+                <div class="room-item">
+                    <img src="21.png" alt="Room-1"/>
+                    <h3></h3>
+                </div>
+                <div class="room-item">
+                    <img src="22.png" alt="Room-2"/>
+                    
+                </div>
+                
+                
+            </div>
+    </section>
+    <section class="subscribe">
+       
+    </section>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <h3> <strong>Funiro.</strong></h3>
+                <p>Şık ve konforlu mobilyalarla evinizi güzelleştirin.</p>
+                
+            </div>
+            <div class="footer-right">
+                
+                <ul class="footer-links">
+                    <li><a href="#"><strong>Home</strong></a></li>
+                    <li><a href="#"><strong>Shop</strong></a></li>
+                    <li><a href="#"><strong>About</strong></a></li>
+                    <li><a href="#"><strong>Contact</strong></a></li>
+                    <li><a href="#"><strong>Payments Options</strong></a></li>
+                    <li><a href="#"><strong>Returns</strong></a></li>
+                    <li><a href="#"><strong>Privacy Polices</strong></a></li>
+                </ul>  
+                </div>
+                <section class="subscribe">
+                    <div class="container subscribe-content">
+                        <h2>Newsletter</h2>
+                        <p>En son kampanyalardan ve yeni ürünlerden haberdar olun.</p>
+                        <form class="subscribe-form" onsubmit="return false;">
+                            <input type="email" placeholder="E-mail Adresiniz:"required/>
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                        </div>
+                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 furino. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>document.addEventlistener("DOMContentLoaded",()=>{
+        const subscribeform=document.querySelector(".subscribe-form");
+        if(subscribeform){
+            subscribeForm.addEventListener("submit",(e)=>{
+                e.preventDefault();
+                const emailInput=subscribeForm.querySelector("input[type='email']");
+                if(emailInput&& emailInput.value){
+                    alert('Teşekkürler! Aboneliğiniz onaylandı:${emailInput.value}');
+                    emailInput.value='';        
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
